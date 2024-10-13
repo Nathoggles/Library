@@ -15,9 +15,9 @@ body {
   font-size: clamp(1rem, 1rem + 1vw, 3.2rem);
 }
 
-body {
+/* body {
   max-inline-size: 70ch;
-}
+} */
 
 /*
   Josh Comeau's Custom CSS Reset
