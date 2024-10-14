@@ -153,9 +153,10 @@ margin-bottom: 1rem;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 2rem;
-    border-radius: 0.5rem;
+    border-radius: 3rem;
     background-color: #fff8ed;
     box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.473);
+
   }
 
   dialog::backdrop{
@@ -168,9 +169,15 @@ margin-bottom: 1rem;
     align-items: center;
     gap: 2rem;
   }
+
 .formContainer {
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 1rem;
+}
+
+.dialogButtons {
+    display: flex;
+    gap: 2rem;
 }
 
