@@ -68,7 +68,6 @@ margin-bottom: 1rem;
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-auto-rows: 35rlh;
     gap: 1rem;
     justify-content: center;
     align-items: center;
@@ -105,14 +104,15 @@ margin-bottom: 1rem;
     margin: 0.5rem;
     border-radius: 2rem;
 
-    height: 35rlh;
+    max-height: 35rlh;
     box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.473);
     max-inline-size: 35ch;
     overflow-wrap: break-word;
 }
 
+/* "shelf" effect to make horizontal borders below the cards' gap, which however works only on a static grid */
 
-.card::after {
+/* .card::after {
     position: absolute;
     content: '';
     z-index: 1;
@@ -124,7 +124,7 @@ margin-bottom: 1rem;
     border-top: 1px solid rgb(139, 139, 139);
     border-bottom: 2px solid rgba(0, 0, 0, 0.678);
       
-  }
+  } */
   .close-btn {
     position: absolute;
     top: 0.3rem;
