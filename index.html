@@ -14,19 +14,19 @@
         <button class="addBook">Add a new book to the library...</button>
     </div>
     
-    <dialog open>
-        <form method="dialog">
+    <dialog class="dialog">
+        <form class="dialogForm" method="dialog">
             <div class="formContainer">
                 <label autofocus for="title">Title:</label>
-                <input type="text" id="title" name="title" placeholder="The Book">
+                <input type="text" id="title" name="title" placeholder="The Book" maxlength="100">
                 <label for="author">Author:</label>
-                <input type="text" id="author" name="author" placeholder="Author McAuthy">
+                <input type="text" id="author" name="author" placeholder="Author McAuthy" maxlength="50">
                 <label for="pages">Pages:</label>
-                <input type="number" id="pages" name="pages" placeholder="456">
+                <input type="number" id="pages" name="pages" placeholder="456" maxlength="50">
                 <label for="place">Place:</label>
-                <input type="text" id="place" name="place" placeholder="Edinburgh">
+                <input type="text" id="place" name="place" placeholder="Edinburgh" maxlength="50">
                 <label for="date">Year:</label>
-                <input type="text" id="date" name="date" pattern="/^\d{2,4}$/" placeholder="2012">
+                <input type="text" id="date" name="date" pattern="^\d{2,4}$" placeholder="2012" maxlength="50">
             </div>
             <div class="dialogButtons">
                 <button type="submit" class=submitButton formmethod="dialog">Submit</button>
@@ -43,8 +43,8 @@
                     <div class="2ndLine"><span class="location">London </span><span class="date">1937</span></div>
                     <p class="pages">312 pages</p>
                     <div class ="read">
-                        <label for="readCheckbox">I need to read this one!</label>
-                        <input type="checkbox" id="readCheckbox" name="read">
+                        <label for="readCheckbox">Have I read it?</label>
+                        <input type="checkbox" class="readCheckBox" name="read">
                     </div>
             </div>
             <div class="card" data-index="1">
@@ -54,8 +54,8 @@
                     <div class="2ndLine"><span class="location">London </span><span class="date">1937</span></div>
                     <p class="pages">312 pages</p>
                     <div class ="read">
-                        <label for="readCheckbox">I need to read this one!</label>
-                        <input type="checkbox" id="readCheckbox" name="read">
+                        <label for="readCheckbox">Have I read it?</label>
+                        <input type="checkbox" class="readCheckBox" name="read">
                     </div>
             </div>
             <div class="card" data-index="2">
@@ -65,8 +65,8 @@
                     <div class="2ndLine"><span class="location">London </span><span class="date">1937</span></div>
                     <p class="pages">312 pages</p>
                     <div class ="read">
-                        <label for="readCheckbox">I need to read this one!</label>
-                        <input type="checkbox" id="readCheckbox" name="read">
+                        <label for="readCheckbox">Have I read it?</label>
+                        <input type="checkbox" class="readCheckBox" name="read">
                     </div>
             </div>
             <div class="card" data-index="3">
@@ -76,8 +76,8 @@
                     <div class="2ndLine"><span class="location">London </span><span class="date">1937</span></div>
                     <p class="pages">312 pages</p>
                     <div class ="read">
-                        <label for="readCheckbox">I need to read this one!</label>
-                        <input type="checkbox" id="readCheckbox" name="read">
+                        <label for="readCheckbox">Have I read it?</label>
+                        <input type="checkbox" class="readCheckBox" name="read">
                     </div>
             </div>
     </div>
