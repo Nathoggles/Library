@@ -3,14 +3,15 @@ const addBookBtn = document.querySelector(".addBook");
 const submitBtn = document.querySelector(".submitButton");
 const form = document.querySelector(".dialogForm");
 const cardsContainer = document.querySelector(".cardsContainer");
+const closeBtns = document.querySelectorAll(".close-btn");
 
 const myLibrary = [];
 
-function Book(title, author, pages, date, place){
+function Book(title, author, pages, year, place){
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.date = date;
+    this.year = year;
     this.place = place;
 }
 
@@ -24,29 +25,40 @@ addBookBtn.addEventListener("click", () =>{
 })
 
     
-submitBtn.addEventListener("click", (e) => {
-        e.preventDefault();
+form.addEventListener("submit", (e) => {
+        if (e.submitter && e.submitter.classList.contains("cancelButton")) {
+            form.reset();
+            dialog.close();
+            return;
+        }
         const formData = new FormData(form);
         const bookData = {};
         formData.forEach((value, key) => {
             bookData[key] = value;
         })
         console.log(bookData);
-        dialog.close();
+       /*  dialog.close(); */
         form.reset();
-        const newBook = new Book(bookData.title, bookData.author, bookData.pages, bookData.date, bookData.place);
+        const newBook = new Book(bookData.title, bookData.author, bookData.pages, bookData.year, bookData.place);
         newBook.read = false;
         addBookToLibrary(newBook);
         console.log(myLibrary);
         console.log(myLibrary.length);
         displayBook(newBook);
     });
-
-
-
+function closeListener(button){
+    button.addEventListener("click", () => {
+        alert("click!");
+        const card = button.closest(".card");
+        const index = card.dataset.index;
+        myLibrary.splice(index, 1);
+        card.remove();
+        console.log(myLibrary);
+    });
+}
  function displayBook(book){
     console.log(book.place);
-    console.log(book.date);
+    console.log(book.year);
     const card = document.createElement("div");
     card.classList.add("card");
     card.dataset.index = myLibrary.length - 1;
@@ -68,11 +80,11 @@ submitBtn.addEventListener("click", (e) => {
     const place = document.createElement("span");
     place.classList.add("place");
     place.textContent = book.place + " ";
-    const date = document.createElement("span");
-    date.classList.add("date");
-    date.textContent = book.date;
+    const year = document.createElement("span");
+    year.classList.add("year");
+    year.textContent = book.year;
     secondLine.appendChild(place);
-    secondLine.appendChild(date);
+    secondLine.appendChild(year);
     
     const pages = document.createElement("p");
     pages.classList.add("pages");
@@ -91,20 +103,19 @@ submitBtn.addEventListener("click", (e) => {
     readCheckBox.name = "read";
 
     read.appendChild(readLabel);
-
-    read.appendChild(readCheckBox);
-    
-    
+    read.appendChild(readCheckBox); 
     card.appendChild(closeBtn);
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(secondLine);
     card.appendChild(pages);
     card.appendChild(read);
-    
     cardsContainer.appendChild(card);
 
+    closeListener(closeBtn);
 } 
+
+
 
 
 
