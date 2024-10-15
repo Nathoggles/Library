@@ -189,6 +189,18 @@ input::placeholder {
     gap: 2rem;
   }
 
+  .close-btn {
+    position: absolute;
+    top: 0.3rem;
+    right: 1.3rem;
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #fff8ed;
+  
+  }
+
 .formContainer {
     display: grid;
     grid-template-columns: 1fr 3fr;
