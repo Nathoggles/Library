@@ -48,7 +48,6 @@ form.addEventListener("submit", (e) => {
     });
 function closeListener(button){
     button.addEventListener("click", () => {
-        alert("click!");
         const card = button.closest(".card");
         const index = card.dataset.index;
         myLibrary.splice(index, 1);
