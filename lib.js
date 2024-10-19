@@ -36,14 +36,10 @@ form.addEventListener("submit", (e) => {
         formData.forEach((value, key) => {
             bookData[key] = value;
         })
-        console.log(bookData);
-       /*  dialog.close(); */
         form.reset();
         const newBook = new Book(bookData.title, bookData.author, bookData.pages, bookData.year, bookData.place);
         newBook.read = false;
         addBookToLibrary(newBook);
-        console.log(myLibrary);
-        console.log(myLibrary.length);
         displayBook(newBook);
     });
 function closeListener(button){
@@ -52,12 +48,16 @@ function closeListener(button){
         const index = card.dataset.index;
         myLibrary.splice(index, 1);
         card.remove();
-        console.log(myLibrary);
     });
 }
+
+function readListener(book, checkbox){
+    checkbox.addEventListener("click", () => {
+         book.read = checkbox.checked;
+    });
+}
+
  function displayBook(book){
-    console.log(book.place);
-    console.log(book.year);
     const card = document.createElement("div");
     card.classList.add("card");
     card.dataset.index = myLibrary.length - 1;
@@ -111,17 +111,20 @@ function closeListener(button){
     card.appendChild(read);
     cardsContainer.appendChild(card);
 
+    card.style.background = randomHue();
+
     closeListener(closeBtn);
+    readListener(book, readCheckBox)
 } 
 
 
-
-
-
-/* dialog.addEventListener("submit", (e) => {
-    e.preventDefault();
-    console.log("dialog submitted");
-});
- */
-
-
+function randomHue(){
+    let randomHue =  "hsl(" + randomDecimal() + ", 45%, 56%";
+    return randomHue;
+}
+    function randomDecimal(){
+        const min = 1;
+        const max = 360;
+        const diff = max - min; 
+        return Math.round(((Math.random() * diff) + min) * 10) / 10;
+    } 

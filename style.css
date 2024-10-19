@@ -1,3 +1,8 @@
+:root {
+  --mainColor: #c28e5e;
+  --checkboxColor:#1e2091;
+  --fontColor: #fff8ed;
+}
 
 body {
     display: flex;
@@ -42,7 +47,7 @@ body {
 
 .addBook {
     
- background-color: #c28e5e;
+ background-color: var(--mainColor);
  color: #fff8ed;
  font-weight: 600;
  border: none;
@@ -100,13 +105,16 @@ margin-bottom: 1rem;
     justify-content: center;
     padding: 1rem;
     color: #fff8ed;
-    background-color: #c28e5e;
+    background-color: var(--mainColor);
+   /*  background-color: hsl(359, 45%, 56%); */
     margin: 0.5rem;
     border-radius: 2rem;
 
-    max-height: 35rlh;
+    min-width: 200px;
+    max-height: 30rlh;
     box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.473);
     max-inline-size: 35ch;
+    overflow: auto;
     overflow-wrap: break-word;
 }
 
@@ -159,10 +167,10 @@ margin-bottom: 1rem;
     /* For iOS < 15 to remove gradient background */
     background-color: #fff;
     font: inherit;
-  color: currentColor;
+  color: var(--checkboxColor);
   width: 1.15vh;
   height: 1.15vh;
-  border: 0.15vh solid currentColor;
+  border: 0.15vh solid var(--checkboxColor);
   border-radius: 0.15vh;
   transform: translateY(-0.075em);
   margin-right: 0.3rem;
@@ -179,7 +187,7 @@ margin-bottom: 1rem;
     height: 0.8vh;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em rgb(158, 100, 55);
+    box-shadow: inset 1em 1em var(--checkboxColor);
   }
 
   input[type="checkbox"]:checked::before {
